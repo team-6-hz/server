@@ -14,7 +14,7 @@ const ROUTES = [
         [`^/free`]: '',
       },
     }
-  }, 
+  },
   {
     url: '/posts',
     auth: false,
@@ -28,14 +28,50 @@ const ROUTES = [
     }
   },
   {
+    url: '/posts/:author',
+    auth: false,
+    creditCheck: false,
+    proxy: {
+      target: "http://localhost:3003/getPosts/:author",
+      changeOrigin: true,
+      pathRewrite: {
+        [`^/posts/:author`]: '',
+      },
+    }
+  },
+  {
+    url: '/activities',
+    auth: false,
+    creditCheck: false,
+    proxy: {
+      target: "http://localhost:3006/getActivities",
+      changeOrigin: true,
+      pathRewrite: {
+        [`^/activities`]: '',
+      },
+    }
+  },
+  {
     url: '/acc',
     auth: false,
     creditCheck: false,
     proxy: {
-      target: "http://localhost:3000/",
+      target: "http://localhost:3000/getAcc",
       changeOrigin: true,
       pathRewrite: {
         [`^/acc`]: '',
+      },
+    }
+  },
+  {
+    url: '/acc/:author',
+    auth: false,
+    creditCheck: false,
+    proxy: {
+      target: "http://localhost:3003/getAcc/:author",
+      changeOrigin: true,
+      pathRewrite: {
+        [`^/acc/:author`]: '',
       },
     }
   },
@@ -48,6 +84,18 @@ const ROUTES = [
       changeOrigin: true,
       pathRewrite: {
         [`^/postPost`]: '',
+      },
+    }
+  },
+  {
+    url: '/postActivity',
+    auth: false,
+    creditCheck: false,
+    proxy: {
+      target: "http://localhost:3006/post",
+      changeOrigin: true,
+      pathRewrite: {
+        [`^/postActivity`]: '',
       },
     }
   },
