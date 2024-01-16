@@ -110,6 +110,18 @@ const ROUTES = [
         [`^/premium`]: '',
       },
     }
+  },
+  {
+    url: '/journalentries',
+    auth: false,
+    creditCheck: false,
+    proxy: {
+      target: "http://localhost:3010/journalentries",
+      changeOrigin: true,
+      pathRewrite: {
+        [`^/journalentries`]: '',
+      },
+    }
   }
 ]
 exports.ROUTES = ROUTES;
