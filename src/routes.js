@@ -146,7 +146,7 @@ const ROUTES = [
         [`^/sendMessage`]: '',
       },
     }
-  }
+  },
   {
     url: '/getChallenges',
     auth: false,
