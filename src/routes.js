@@ -147,5 +147,17 @@ const ROUTES = [
       },
     }
   }
+  {
+    url: '/getChallenges',
+    auth: false,
+    creditCheck: false,
+    proxy: {
+      target: "http://localhost:3006/getChallenges",
+      changeOrigin: true,
+      pathRewrite: {
+        [`^/getChallenges`]: '',
+      },
+    }
+  }
 ]
 exports.ROUTES = ROUTES;
