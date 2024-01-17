@@ -122,6 +122,30 @@ const ROUTES = [
         [`^/journalentries`]: '',
       },
     }
+  },
+  {
+    url: '/getChats/:userId',
+    auth: false,
+    creditCheck: false,
+    proxy: {
+      target: "http://localhost:3020/getChats",
+      changeOrigin: true,
+      pathRewrite: {
+        [`^/getChats`]: '',
+      },
+    }
+  },
+  {
+    url: '/sendMessage',
+    auth: false,
+    creditCheck: false,
+    proxy: {
+      target: "http://localhost:3020/sendMessage",
+      changeOrigin: true,
+      pathRewrite: {
+        [`^/sendMessage`]: '',
+      },
+    }
   }
 ]
 exports.ROUTES = ROUTES;
