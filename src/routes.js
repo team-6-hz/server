@@ -140,6 +140,54 @@ const ROUTES = [
         [`^/premium`]: '',
       },
     }
+  },
+  {
+    url: '/journalentries',
+    auth: false,
+    creditCheck: false,
+    proxy: {
+      target: "http://localhost:3010/journalentries",
+      changeOrigin: true,
+      pathRewrite: {
+        [`^/journalentries`]: '',
+      },
+    }
+  },
+  {
+    url: '/getChats/:userId',
+    auth: false,
+    creditCheck: false,
+    proxy: {
+      target: "http://localhost:3020/getChats",
+      changeOrigin: true,
+      pathRewrite: {
+        [`^/getChats`]: '',
+      },
+    }
+  },
+  {
+    url: '/sendMessage',
+    auth: false,
+    creditCheck: false,
+    proxy: {
+      target: "http://localhost:3020/sendMessage",
+      changeOrigin: true,
+      pathRewrite: {
+        [`^/sendMessage`]: '',
+      },
+    }
+  },
+  {
+    url: '/getChallenges',
+    auth: false,
+    creditCheck: false,
+    proxy: {
+      target: "http://localhost:3006/getChallenges",
+      changeOrigin: true,
+      pathRewrite: {
+        [`^/getChallenges`]: '',
+      },
+    }
   }
 ]
 exports.ROUTES = ROUTES;
