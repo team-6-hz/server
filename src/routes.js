@@ -158,6 +158,18 @@ const ROUTES = [
         [`^/getChallenges`]: '',
       },
     }
-  }
+  },
+  {
+    url: '/completeChallenge',
+    auth: false,
+    creditCheck: false,
+    proxy: {
+      target: "http://localhost:3006/completeChallenge",
+      changeOrigin: true,
+      pathRewrite: {
+        [`^/completeChallenge`]: '',
+      },
+    }
+  },
 ]
 exports.ROUTES = ROUTES;
