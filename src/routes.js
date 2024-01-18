@@ -28,6 +28,18 @@ const ROUTES = [
     }
   },
   {
+    url: '/dog',
+    auth: false,
+    creditCheck: false,
+    proxy: {
+      target: "http://localhost:3003/getPosts",
+      changeOrigin: true,
+      pathRewrite: {
+        [`^/dog`]: '',
+      },
+    }
+  },
+  {
     url: '/posts/:author',
     auth: false,
     creditCheck: false,
@@ -64,15 +76,21 @@ const ROUTES = [
     }
   },
   {
-    url: '/acc/:author',
+    url: '/getAccUsername/:author',
     auth: false,
     creditCheck: false,
     proxy: {
-      target: "http://localhost:3003/getAcc/:author",
+      target: "http://localhost:3000",
       changeOrigin: true,
-      pathRewrite: {
-        [`^/acc/:author`]: '',
-      },
+    }
+  },
+  {
+    url: '/getAccEmail/:author',
+    auth: false,
+    creditCheck: false,
+    proxy: {
+      target: "http://localhost:3000",
+      changeOrigin: true,
     }
   },
   {
@@ -84,6 +102,18 @@ const ROUTES = [
       changeOrigin: true,
       pathRewrite: {
         [`^/postPost`]: '',
+      },
+    }
+  },
+  {
+    url: '/postAcc',
+    auth: false,
+    creditCheck: false,
+    proxy: {
+      target: "http://localhost:3000/postAcc",
+      changeOrigin: true,
+      pathRewrite: {
+        [`^/postAcc`]: '',
       },
     }
   },
