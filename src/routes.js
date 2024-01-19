@@ -76,6 +76,18 @@ const ROUTES = [
     }
   },
   {
+    url: '/updateAcc',
+    auth: false,
+    creditCheck: false,
+    proxy: {
+      target: "http://localhost:3000/updateAcc",
+      changeOrigin: true,
+      pathRewrite: {
+        [`^/updateAcc`]: '',
+      },
+    }
+  },
+  {
     url: '/getAccUsername/:author',
     auth: false,
     creditCheck: false,
