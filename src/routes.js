@@ -200,6 +200,30 @@ const ROUTES = [
         [`^/getChallenges`]: '',
       },
     }
+  },
+  {
+    url: '/completeChallenge',
+    auth: false,
+    creditCheck: false,
+    proxy: {
+      target: "http://localhost:3006/completeChallenge",
+      changeOrigin: true,
+      pathRewrite: {
+        [`^/completeChallenge`]: '',
+      },
+    }
+  },
+  {
+    url: '/checkChallengeCompletion/:userId/:challengeId',
+    auth: false,  
+    creditCheck: false, 
+    proxy: {
+      target: 'http://localhost:3006/checkChallengeCompletion',
+      changeOrigin: true,
+      pathRewrite: {
+        '^/checkChallengeCompletion': '',
+      },
+    },
   }
 ]
 exports.ROUTES = ROUTES;
