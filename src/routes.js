@@ -35,6 +35,13 @@ const ROUTES = [
     }
   },
   {
+    url: '/match',
+    proxy: {
+      target: "http://localhost:3009",
+      changeOrigin: true,
+    }
+  },
+  {
     url: '/entries',
     proxy: {
       target: "http://localhost:3010/",
